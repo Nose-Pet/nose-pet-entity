@@ -1,0 +1,6 @@
+./migration
+migration.sh
+.yarn
+.vscode
+data-source.ts
+.idea
