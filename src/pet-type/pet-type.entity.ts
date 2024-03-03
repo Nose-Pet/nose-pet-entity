@@ -12,4 +12,7 @@ export class PetType {
 
   @OneToMany(() => Pet, (pet) => pet.petType)
   pets: Pet[];
+
+  @OneToMany(() => Pet, (pet) => pet.petType)
+  missingReports: Pet[];
 }

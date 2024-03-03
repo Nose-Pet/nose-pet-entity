@@ -5,6 +5,7 @@ import { User } from '../user/user.entity';
 import { PetType } from '../pet-type/pet-type.entity';
 import { PetNosePrint } from '../pet-nose-print/pet-nose-print.entity';
 import { PetSchedule } from '../pet-schedule/pet-schedule.entity';
+import { MissingReport } from '../missing-report/missing-report.entity';
 
 @Entity()
 export class Pet {
@@ -50,4 +51,7 @@ export class Pet {
 
   @OneToMany(() => PetSchedule, (petSchedule) => petSchedule.pet)
   petSchedules: PetSchedule[];
+
+  @OneToMany(() => MissingReport, (missingReport) => missingReport.pet)
+  missingReports: MissingReport[];
 }
