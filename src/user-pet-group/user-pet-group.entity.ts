@@ -2,6 +2,7 @@ import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, Up
 import { UserPetGroupStatus } from './user-pet-group.constant';
 import { User } from '../user/user.entity';
 import { Pet } from '../pet/pet.entity';
+import { Schedule } from '../schedule/schedule.entity';
 
 @Entity()
 export class UserPetGroup {
@@ -25,4 +26,7 @@ export class UserPetGroup {
 
   @OneToMany(() => Pet, (pet) => pet.userPetGroup)
   pets: Pet[];
+
+  @OneToMany(() => Schedule, (schedule) => schedule.userPetGroup)
+  schedules: Schedule[];
 }

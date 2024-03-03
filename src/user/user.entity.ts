@@ -1,7 +1,8 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { UserPetGroup } from '../user-pet-group/user-pet-group.entity';
 import { UserStatus } from './user.constant';
 import { Pet } from '../pet/pet.entity';
+import { Schedule } from '../schedule/schedule.entity';
 
 @Entity()
 export class User {
@@ -32,6 +33,9 @@ export class User {
   @ManyToOne(() => UserPetGroup, (userPetGroup) => userPetGroup.users)
   userPetGroup: UserPetGroup;
 
-  @OneToOne(() => Pet, (pet) => pet.creator)
-  pet: Pet;
+  @OneToMany(() => Pet, (pet) => pet.creator)
+  pets: Pet[];
+
+  @OneToMany(() => Schedule, (schedule) => schedule.creator)
+  schedules: Schedule[];
 }
