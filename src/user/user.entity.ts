@@ -4,6 +4,7 @@ import { UserStatus } from './user.constant';
 import { Pet } from '../pet/pet.entity';
 import { Schedule } from '../schedule/schedule.entity';
 import { MissingReport } from '../missing-report/missing-report.entity';
+import { Token } from '../token/token.entity';
 
 @Entity()
 export class User {
@@ -42,4 +43,7 @@ export class User {
 
   @OneToMany(() => MissingReport, (missingReport) => missingReport.writer)
   missingReports: MissingReport[];
+
+  @OneToMany(() => Token, (token) => token.user)
+  tokens: Token[];
 }
