@@ -5,6 +5,7 @@ import { Pet } from '../pet/pet.entity';
 import { Schedule } from '../schedule/schedule.entity';
 import { MissingReport } from '../missing-report/missing-report.entity';
 import { Token } from '../token/token.entity';
+import { UserSecret } from '../user-secret/user-secret.entity';
 
 @Entity()
 export class User {
@@ -13,9 +14,6 @@ export class User {
 
   @Column('varchar', { length: 50 })
   email: string;
-
-  @Column('varchar', { length: 64 })
-  password: string;
 
   @Column('varchar', { length: 10 })
   name: string;
@@ -46,4 +44,7 @@ export class User {
 
   @OneToMany(() => Token, (token) => token.user)
   tokens: Token[];
+
+  @OneToOne(() => UserSecret, (userSecret) => userSecret.user)
+  userSecret: UserSecret;
 }
