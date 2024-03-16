@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, Unique, UpdateDateColumn } from 'typeorm';
 import { UserPetGroup } from '../user-pet-group/user-pet-group.entity';
 import { UserStatus } from './user.constant';
 import { Pet } from '../pet/pet.entity';
@@ -8,6 +8,7 @@ import { Token } from '../token/token.entity';
 import { UserSecret } from '../user-secret/user-secret.entity';
 
 @Entity()
+@Unique(['email'])
 export class User {
   @PrimaryGeneratedColumn()
   idx: number;
