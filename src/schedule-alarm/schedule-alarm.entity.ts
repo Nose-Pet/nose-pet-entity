@@ -7,8 +7,8 @@ export class ScheduleAlarm {
   @PrimaryGeneratedColumn()
   idx: number;
 
-  @Column('datetime')
-  time: Date;
+  @Column('time')
+  time: string;
 
   @Column('enum', { enum: ScheduleAlarmStatus, default: ScheduleAlarmStatus.Activated })
   status: ScheduleAlarmStatus;
